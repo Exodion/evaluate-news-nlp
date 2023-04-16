@@ -1,8 +1,15 @@
+const dotenv = require('dotenv');
+dotenv.config();
+console.log(`Your API key is ${process.env.API_KEY}`);
 var path = require('path')
 const express = require('express')
 const mockAPIResponse = require('./mockAPI.js')
 
 const app = express()
+
+const textapi = new mCloud({
+    application_id: process.env.API_ID
+  });
 
 app.use(express.static('dist'))
 
