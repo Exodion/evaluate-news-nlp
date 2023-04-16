@@ -1,4 +1,5 @@
 const dotenv = require('dotenv');
+var MeaningCloud = require('meaning-cloud');
 dotenv.config();
 console.log(`Your API key is ${process.env.API_KEY}`);
 var path = require('path')
