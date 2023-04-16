@@ -1,5 +1,5 @@
 const dotenv = require('dotenv');
-var MeaningCloud = require('meaning-cloud');
+let MeaningCloud = require('meaning-cloud');
 dotenv.config();
 console.log(`Your API key is ${process.env.API_KEY}`);
 var path = require('path')
@@ -29,3 +29,18 @@ app.listen(8080, function () {
 app.get('/test', function (req, res) {
     res.send(mockAPIResponse)
 })
+
+
+let meaning = MeaningCloud({
+    key: process.env.API_KEY, // API Key. Required.
+    secure: true,             // HTTPS or HTTPS. Optional, true by default.
+    uri: 'custom-uri'        // URI to create the API endpoints. Optional.
+  });
+
+/* let meaning = MeaningCloud({
+  key: process.env.API_KEY
+  endpoints: {
+    topics_extraction: '/topics-1.1'
+  }
+}); */
+
