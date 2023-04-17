@@ -31,11 +31,11 @@ app.get('/test', function (req, res) {
 })
 
 
-let meaning = MeaningCloud({
+/*let meaning = MeaningCloud({
     key: process.env.API_KEY, // API Key. Required.
     secure: true,             // HTTPS or HTTPS. Optional, true by default.
     uri: 'custom-uri'        // URI to create the API endpoints. Optional.
-  });
+  });*/
 
 /* let meaning = MeaningCloud({
   key: process.env.API_KEY
@@ -43,3 +43,24 @@ let meaning = MeaningCloud({
     topics_extraction: '/topics-1.1'
   }
 }); */
+
+app.post('/analysis', getExternalContent(req, res));
+
+/*async function getExternalContent(req, res){
+  try{
+    const text = req.params.content;
+
+    const param = {
+      txt: text,
+      key: process.env.API_KEY,
+      lang: 'en'
+
+    };
+
+    await 
+
+
+  }
+
+}*/
+
