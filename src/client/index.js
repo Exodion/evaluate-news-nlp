@@ -30,9 +30,9 @@ var meaning = MeaningCloud(options);
 console.log(meaning);*/
 
 
-const fetch = require('node-fetch');
+//const fetch = require('node-fetch');
 
-let url = "https://api.meaningcloud.com/sentiment-2.1?key=" + process.env.API_KEY + "&url=" + { handleSubmit } + "&lang=en";
+//let url = "https://api.meaningcloud.com/sentiment-2.1?key=" + process.env.API_KEY + "&url=" + { handleSubmit } + "&lang=en";
 
 
 async function postData(url){
