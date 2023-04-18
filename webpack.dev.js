@@ -6,6 +6,10 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 module.exports = {
     target:'node',
     entry: './src/client/index.js',
+    output: {
+        libraryTarget: 'var',
+        library: 'Client'
+    },
     mode: 'development',
     devtool: 'source-map',
     stats: 'verbose',
@@ -18,7 +22,7 @@ module.exports = {
             },
 
             {
-                test: /.scss$/,
+                test: /\.scss$/,
                 use: [ 'style-loader', 'css-loader', 'sass-loader' ]
                 } //added by CF
         ]

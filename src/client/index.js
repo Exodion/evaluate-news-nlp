@@ -13,6 +13,7 @@ import './styles/form.scss'
 import './styles/header.scss'
 
 export {
+    checkForName,
     handleSubmit
 }
 
@@ -77,4 +78,4 @@ async function clickFunction(event){
     getExternalData(url);
 }
 
-document.addEventListener(handleSubmit, clickFunction);
+//document.addEventListener(Client.handleSubmit, clickFunction);
