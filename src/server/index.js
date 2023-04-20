@@ -1,16 +1,18 @@
 const dotenv = require('dotenv');
 let MeaningCloud = require('meaning-cloud');
-dotenv.config();
+//dotenv.config();
+dotenv.config({ path: path.resolve(__dirname, "../.env") });
 console.log(`Your API key is ${process.env.API_KEY}`);
+const apiKey = process.env.API_KEY;
 var path = require('path')
 const express = require('express')
 const mockAPIResponse = require('./mockAPI.js')
-
+let url = ""
 const app = express()
 
-const textapi = new mCloud({
-    application_id: process.env.API_ID
-  });
+/*const textapi = new mCloud({
+    application_id: process.env.API_KEY
+  });*/
 
 app.use(express.static('dist'))
 
@@ -31,36 +33,29 @@ app.get('/test', function (req, res) {
 })
 
 
-/*let meaning = MeaningCloud({
-    key: process.env.API_KEY, // API Key. Required.
-    secure: true,             // HTTPS or HTTPS. Optional, true by default.
-    uri: 'custom-uri'        // URI to create the API endpoints. Optional.
-  });*/
 
-/* let meaning = MeaningCloud({
-  key: process.env.API_KEY
-  endpoints: {
-    topics_extraction: '/topics-1.1'
-  }
-}); */
+app.post('/analysis', function(req, res){
 
-app.post('/analysis', getExternalContent(req, res));
+  let requestedURL = req.body;
+  console.log(requestedURL);
+  let newData = getExternalContent(requestedURL);
+  res.send(newData);
 
-/*async function getExternalContent(req, res){
+})
+
+async function getExternalContent(url){
+
+ const pattern = "https://api.meaningcloud.com/sentiment-2.1?key=" + apiKey + "&url="+ url +"&lang=en"; 
+  const res = await fetch(pattern)
   try{
-    const text = req.params.content;
+      const dataFromAPI = await res.json();
+      console.log(dataFromAPI);
+      return dataFromAPI;
+  }
 
-    const param = {
-      txt: text,
-      key: process.env.API_KEY,
-      lang: 'en'
-
-    };
-
-    await 
-
+  catch(error){
+      console.log("An error appeared: ", error);
 
   }
 
-}*/
-
+}
