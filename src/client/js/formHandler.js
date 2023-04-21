@@ -33,7 +33,7 @@ async function handleSubmit(event) {
       
       }
 
-      let resultData = await postData("/analysis");
+      let resultData = await postData("http://localhost:8080/analysis");
       console.log(resultData.score_tag);
 
       document.querySelector("#polarity").innerText = "Polarity: " + resultData.score_tag;
