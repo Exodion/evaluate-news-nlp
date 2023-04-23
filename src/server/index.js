@@ -25,8 +25,8 @@ app.get('/', function (req, res) {
 })
 
 // designates what port the app will listen to for incoming requests
-app.listen(8080, function () {
-    console.log('Example app listening on port 8080!')
+app.listen(8081, function () {
+    console.log('Example app listening on port 8081!')
 })
 
 app.get('/test', function (req, res) {
@@ -46,7 +46,7 @@ app.post('/analysis', function(req, res){
 
 async function getExternalContent(url){
 
- const pattern = "https://api.meaningcloud.com/sentiment-2.1?key=" + apiKey + "&url="+ url +"&lang=en"; 
+  const pattern = "https://api.meaningcloud.com/sentiment-2.1?key=" + apiKey + "&url="+ url +"&lang=en"; 
   const res = await fetch(pattern)
   try{
       const dataFromAPI = await res.json();
