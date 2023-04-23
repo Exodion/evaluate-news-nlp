@@ -31,11 +31,12 @@ async function handleSubmit(event) {
       
         }
       
-      }
+    }
 
       let resultData = await postData("http://localhost:8080/analysis");
-      console.log(resultData.score_tag);
-
+      console.log(resultData);
+      //console.log(resultData.score_tag);
+      //console.log(resultData.subjectivity);
       document.querySelector("#polarity").innerText = "Polarity: " + resultData.score_tag;
       document.querySelector("#subjectivity").innerText = "Subjectivity: " + resultData.subjectivity;
       document.querySelector("#confidence").innerText = "Confidence: " + resultData.confidence; 
