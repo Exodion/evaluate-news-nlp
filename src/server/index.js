@@ -1,10 +1,11 @@
 const dotenv = require('dotenv');
 let MeaningCloud = require('meaning-cloud');
 //dotenv.config();
+var path = require('path')
 dotenv.config({ path: path.resolve(__dirname, "../.env") });
 console.log(`Your API key is ${process.env.API_KEY}`);
 const apiKey = process.env.API_KEY;
-var path = require('path')
+
 const express = require('express')
 const mockAPIResponse = require('./mockAPI.js')
 const fetch = require('node-fetch')
