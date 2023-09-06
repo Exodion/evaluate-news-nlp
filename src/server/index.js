@@ -1,5 +1,5 @@
 const dotenv = require('dotenv');
-let MeaningCloud = require('meaning-cloud');
+//let MeaningCloud = require('meaning-cloud');
 //dotenv.config();
 var path = require('path')
 dotenv.config({ path: path.resolve(__dirname, "../.env") });
